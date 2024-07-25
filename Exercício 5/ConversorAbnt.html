@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio em HTML com Scripts</title>
+</head>
+
+<script>
+    function converterParaABNT() {
+        const nomeCompleto = document.getElementById('nomeCompleto').value.trim();
+        const partesNome = nomeCompleto.split(' ');
+
+        if (partesNome.length >= 2) {
+            const sobrenome = partesNome.pop();
+            const nomeAbreviado = partesNome.map(nome => nome[0].toUpperCase()).join(' ');
+
+            const nomeABNT = `${sobrenome}, ${nomeAbreviado}`;
+            document.getElementById('resultado').textContent = `Resultado: ${nomeABNT}`;
+        } else {
+            document.getElementById('resultado').textContent = 'Por favor, insira um nome completo válido.';
+        }
+    }
+</script>
+
+
+
+<body>
+    <div class="container">
+        <center>
+            <h1> { Conversor de Nome para ABNT }</h1>
+        </center>
+
+        <hr>
+
+        <br>
+
+        <center>
+            <label for="nomeCompleto">Insira o nome aqui em Baixo</label>
+        </center>
+
+        <br>
+        <br>
+
+        <center>
+            <input type="text" id="nomeCompleto" style="font-size: 25px;">
+        </center>
+
+        <br>
+
+        <center>
+            <button onclick="converterParaABNT()">Converter</button>
+            <p id="resultado"></p>
+        </center>
+
+    </div>
+
+
+</body>
+
+</html>
